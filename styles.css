@@ -1,0 +1,248 @@
+/* Estilos para el encabezado y la barra de navegación */
+header {
+  background-color: #3cf02192;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  height: 75px; /* Ajusta la altura según tus necesidades */
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-left: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #10e485ae;
+}
+
+nav a.active {
+  background-color: #30954bb9;
+}
+
+.logo-img {
+  width: 250px; /* Ajusta el ancho según tus necesidades */
+  height: auto;
+  margin-right: 10px;
+}
+
+/* Estilos para la barra de búsqueda */
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.search-bar input {
+  padding: 8px;
+  border-radius: 4px 0 0 4px;
+  border: 1px solid #ccc;
+}
+
+.search-bar button {
+  padding: 8px 12px;
+  background-color: #1d5a0ca3;
+  color: #fff;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+/* Otros estilos - mantienen los estilos anteriores */
+
+/* Estilos para el contenido principal */
+main section {
+  margin-bottom: 30px;
+}
+
+main h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+main h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.sin-puntos {
+  list-style-type: none;
+}
+h1 {
+  font-size: 100px; /* Tamaño de fuente */
+  color: #8a0505; /* Color del texto */
+  text-align: center; /* Alineación del texto al centro */
+  margin-top: 20px; /* Margen superior */
+  margin-bottom: 20px; /* Margen inferior */
+}
+main ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+/* Estilos para el pie de página */
+footer {
+  background-color: #060505;
+  padding: 20px;
+  margin: 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.footer-text {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-media-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.social-media-links li {
+  margin-right: 10px;
+}
+
+.social-media-links a {
+  color: #333;
+}
+
+/* Colores personalizados */
+body {
+  background-color: #26e790ae;
+  color: #080808;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: #333;
+}
+
+nav a:hover {
+  color: #333;
+  background-color: #e5e5e5;
+}
+
+nav a.active {
+  background-color: #ddd;
+}
+
+main {
+  display: flex;
+}
+
+aside {
+  flex-shrink: 0;
+  width: 150px; /* Ajusta el ancho de la barra lateral según tus necesidades */
+  padding: 20px;
+  background-color: #088546a8;
+}
+
+.image-section {
+  flex-grow: 1;
+  padding: 0px;
+  text-align: center;
+}
+
+.image-section img {
+  width: 100%;
+  height: auto;
+}
+
+.product-section {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.product {
+  width: 150px; /* Ajusta el ancho del cuadro del producto según tus necesidades */
+  border: 1px solid #561717;
+  padding: 20px;
+  background-color: #13c179b8; /* Cambia el color de fondo según tus preferencias */
+  margin: 10px;
+}
+
+.product-container {
+  text-align: center;
+}
+
+.product img {
+  max-width: 25%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.product h3 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.product p {
+  margin-bottom: 5px;
+}
+
+.product button {
+  background-color: #1d5a0ca3;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.product button:hover {
+  background-color: #10e485ae;
+}
+
+footer {
+  background-color: #a99d9d;
+}
+
+.footer-text {
+  color: #777;
+}
+
+.social-media-links a {
+  color: #040303;
+}
+
+.social-media-links a:hover {
+  color: #060505;
+}

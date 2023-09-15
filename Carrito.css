@@ -1,0 +1,37 @@
+#formularioPago {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #514a4a;
+    border-radius: 4px;
+    background-color: #cdc6c6; /* Color de fondo */
+  }
+  
+  #formularioPago label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  #formularioPago input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+  
+  #formularioPago button[type="submit"] {
+    background-color: #2cf22c;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  #formularioPago button[type="submit"]:hover {
+    background-color: #c80b08;
+  }
+  

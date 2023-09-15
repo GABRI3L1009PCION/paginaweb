@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Marketplace Profesional</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Archivo CSS externo para los estilos -->
+  
+
+  <style>
+    /* CSS para las tarjetas de producto */
+    .product-card {
+      width: 200px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      max-height: 150px;
+      object-fit: cover;
+    }
+
+    .product-card h3 {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    .product-card p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .product-card .price {
+      font-weight: bold;
+    }
+
+    .product-card .add-to-cart {
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <nav>
+          <a href="#" class="logo">
+            <img src="logoespecial.png" alt="Logo del Marketplace" class="logo-img">
+          </a>
+          <div class="search-bar">
+            <input type="text" placeholder="Buscar productos">
+            <button type="submit">Buscar</button>
+          </div>
+          <ul>
+            <li><a href="Inicio.html">Inicio</a></li>
+            <li><a href="Productos.html">Productos</a></li>
+            <li><a href="Categorias.html">Categorías</a></li>
+            <li><a href="#">Mi Cuenta</a></li>
+            <li><a href="Carrito.html">Carrito</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <aside>
+          <section>
+            <h2>Productos Destacados</h2>
+            <ul class="sin-puntos">
+              <li>Producto 1</li>
+              <li>Producto 2</li>
+              <li>Producto 3</li>
+            </ul>
+          </section>
+      
+          <section>
+            <h2>Categorías</h2>
+            <ul class="sin-puntos">
+              <li>Supermercado</li>
+              <li>Ropa y Calzado</li>
+              <li>Muebles</li>
+              <li>Tecnologia</li>
+            </ul>
+          </section>
+        </aside>
+      
+        <section class="content-section">
+          <section class="image-section">
+            <img src="publicidad.png" alt="Imagen adicional">
+          </section>
+
+          <h1>Productos Destacados</h1>
+      
+          <h1>Tu tienda en línea</h1>
+
+          <div id="product-list">
+            <div class="product-card">
+              <img src="ruta_de_la_imagen1.jpg" alt="Producto 1">
+              <h3>Nombre del producto 1</h3>
+              <p>Descripción del producto 1</p>
+              <p class="price">$9.99</p>
+              <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+        
+            <div class="product-card">
+              <img src="ruta_de_la_imagen2.jpg" alt="Producto 2">
+              <h3>Nombre del producto 2</h3>
+              <p>Descripción del producto 2</p>
+              <p class="price">$19.99</p>
+              <button class="add-to-cart">Añadir al carrito</button>
+            </div>
+        
+            <!-- Agrega más productos aquí -->
+          </div>
+        
+          <div id="cart-items"></div>
+        
+          <p id="total">Total a pagar: $0.00</p>
+        
+        </section>
+      </main>
+      <script>
+        // Obtiene una referencia a los elementos HTML relevantes
+        const addToCartButtons = document.getElementsByClassName('add-to-cart');
+        const cartItems = [];
+        let total = 0;
+    
+        // Recorre los botones "Añadir al carrito" y añade el evento click a cada uno
+        for (let i = 0; i < addToCartButtons.length; i++) {
+          addToCartButtons[i].addEventListener('click', addToCart);
+        }
+    
+        // Función para agregar un producto al carrito
+        function addToCart(event) {
+          const productCard = event.target.parentNode;
+          const product = {
+            image: productCard.querySelector('img').src,
+            name: productCard.querySelector('h3').innerText,
+            description: productCard.querySelector('p').innerText,
+            price: parseFloat(productCard.querySelector('.price').innerText.replace('$', ''))
+          };
+          
+          cartItems.push(product);
+          total += product.price;
+          updateCart();
+        }
+    
+        // Función para actualizar el carrito y el total a pagar
+        function updateCart() {
+          // Vaciar el carrito
+          const cartContainer = document.getElementById('cart-items');
+          cartContainer.innerHTML = '';
+    
+          // Recorrer los productos en el carrito y añadirlos al HTML
+          cartItems.forEach((product, index) => {
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+    
+            const image = document.createElement('img');
+            image.src = product.image;
+            image.alt = product.name;
+    
+            const name = document.createElement('h4');
+            name.innerText = product.name;
+    
+            const price = document.createElement('p');
+            price.innerText = '$' + product.price.toFixed(2);
+    
+            const removeButton = document.createElement('button');
+            removeButton.innerText = 'Eliminar';
+            removeButton.addEventListener('click', () => removeFromCart(index));
+    
+            cartItem.appendChild(image);
+            cartItem.appendChild(name);
+            cartItem.appendChild(price);
+            cartItem.appendChild(removeButton);
+    
+            cartContainer.appendChild(cartItem);
+          });
+    
+          // Actualizar el total a pagar
+          const totalElement = document.getElementById('total');
+          totalElement.innerText = 'Total a pagar: $' + total.toFixed(2);
+        }
+    
+        // Función para eliminar un producto del carrito
+        function removeFromCart(index) {
+          total -= cartItems[index].price;
+          cartItems.splice(index, 1);
+          updateCart();
+        }
+      </script>
+      
+      
+      
+
+     
+
+      <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Enlaces útiles</h3>
+            <ul>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Productos</a></li>
+              <li><a href="#">Categorías</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Información de contacto</h3>
+            <p>Teléfono: 123-456-7890</p>
+            <p>Email: info@marketplace.com</p>
+          </div>
+          <div class="footer-section">
+            <h3>Síguenos en redes sociales</h3>
+            <ul class="social-media-links">
+              <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="footer-text">&copy; 2023 Marketplace Profesional. Todos los derechos reservados.</p>
+      </footer>
+      
+</body>
+</html>
